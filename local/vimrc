@@ -1,0 +1,121 @@
+set encoding=utf8
+set incsearch            " find as you type search
+set hlsearch             " highlight search terms
+set showmatch            " show matching brackets/parenthesis
+set autoindent
+set number
+set nowrap
+set ruler                " show cursor position at all times
+set scrolloff=5          " keep at least 5 lines above/below
+set sidescrolloff=5      " keep at least 5 lines left/right
+set splitright           " Split window to the right
+set cmdheight=2          " Command Window height to 2 lines
+set autoread             " Read file changes from the outside
+set tabstop=2            " Set tab width to 2
+set shiftwidth=2
+set expandtab            " Replace tabs with spaces when using tab key
+set fileformat=unix
+set eol                  " Enforce an empty line at end of a file
+set mouse=a              " Enable mouse support in terminal VIM
+
+" Enable and configure folding
+set foldmethod=syntax
+set foldnestmax=6
+set nofoldenable
+
+filetype plugin on        " Enable file type detection along with ftplugin/language.vim
+filetype plugin indent on " Language dependent indenting
+
+set bs=indent,eol,start   " Backspace over everything in insert mode
+
+" colors
+syntax on
+set t_Co=256           " Enable vim to use 256 colors
+set background=dark
+colorscheme zenburn
+" let g:gruvbox_contrast_dark='hard'
+
+" Color for selected text
+hi Visual gui=NONE guibg=Grey80 guifg=Black
+hi Visual cterm=NONE ctermbg=Grey ctermfg=Black
+
+" Sign column
+set signcolumn=yes  " Always show
+hi clear SignColumn " Transparent background
+
+" Directories for swp files
+set backupdir=~/.vim/backup
+set directory=~/.vim/backup
+
+" Map the leader key to space
+let mapleader = " "
+
+" clearing highlighted search
+nmap <silent> <leader>/ :nohlsearch<CR>
+
+" Moving text around
+" http://vim.wikia.com/wiki/Moving_lines_up_or_down
+" Mapping to ALT-j and ALT-k
+nnoremap ∆ :m .+1<CR>==
+nnoremap ˚ :m .-2<CR>==
+inoremap ∆ <Esc>:m .+1<CR>==gi
+inoremap ˚ <Esc>:m .-2<CR>==gi
+vnoremap ∆ :m '>+1<CR>gv=gv
+vnoremap ˚ :m '<-2<CR>gv=gv
+
+" ** Split navigations **
+"" Below
+nnoremap <C-J> <C-W><C-J>  
+"" Above
+nnoremap <C-K> <C-W><C-K>
+"" Right
+nnoremap <C-L> <C-W><C-L>
+"" Left
+nnoremap <C-H> <C-W><C-H>
+
+" Allow saving of files as sudo when I forgot to start vim using sudo.
+cmap w!! w !sudo tee > /dev/null %
+
+" Save on focus loss
+" :au FocusLost * silent! :w
+
+" Always show statusbar
+set laststatus=2
+
+" ======== Plugins ========
+" XML folding
+let g:xml_syntax_folding=1
+
+" CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.git,*.class,*.o
+
+" ** NERDTree settings **
+" Toggle NERDTree with n
+map <leader>1 :NERDTreeToggle<CR>
+" Always show NerdTree in seperate split window and only if no file was specified
+" autocmd vimenter * if !argc() | NERDTree | endif
+let g:NERDTreeWinSize = 40      " set window size
+" Close vim if NERDTree is the only remaining open window
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+" Don't show sing column for NERDtree
+autocmd FileType nerdtree setlocal signcolumn=no
+
+" ** GitGutter **
+" Enable gitgutter
+let g:gitgutter_enabled=1
+" Reduce update time for gitgutter
+set updatetime=400
+" Default colors
+highlight GitGutterAdd    guifg=#b8bb26 ctermfg=142
+highlight GitGutterChange guifg=#fabd2f ctermfg=214
+highlight GitGutterDelete guifg=#fb4934 ctermfg=167
+
+" ** tcomment-vim **
+let g:tcomment_opleader1 = '<leader>c'
+
+" ** conda-vim **
+let g:conda_startup_msg_suppress = 1
+
+" Map .vrt files as xml
+au BufNewFile,BufRead *.vrt set filetype=xml
+

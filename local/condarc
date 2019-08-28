@@ -1,0 +1,10 @@
+channel_priority: strict
+channels:
+  - conda-forge
+  - defaults
+auto_update_conda: true
+show_channel_urls: true
+update_dependencies: true
+auto_activate_base: false
+create_default_packages:
+  - ipython
