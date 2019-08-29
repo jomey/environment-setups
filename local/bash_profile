@@ -1,14 +1,15 @@
 export PROJECTS_ROOT='/Volumes/warehouse/projects'
 export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
+
+## PATH additions
+export PATH="$PATH:${PROJECTS_ROOT}/Applications/ASP/bin"
+
+
 ## Common includes
 source ${PROJECTS_ROOT}/environment-setups/common/imports
 # Third party
 source /usr/local/etc/bash_completion.d/git-completion.bash
-
-
-## PATH additions
-export PATH="$PATH:${PROJECTS_ROOT}/Applications/ASP/bin"
 
 
 ## Terminal prompt
