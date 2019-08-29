@@ -7,7 +7,7 @@ PATH=${HOME}/bin:${PROJECTS_ROOT}/bin:${HOME}/ASP/current/bin:${PATH}
 
 
 ## Common includes
-source ${PROJECTS_ROOT}/environment-setups/common/imports
+source ${PROJECTS_ROOT}/environment-setups/common/imports.bash
 # GIT customization
 source ${CONDA_HOME}/share/bash-completion/completions/git
 

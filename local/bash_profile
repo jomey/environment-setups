@@ -7,7 +7,7 @@ export PATH="$PATH:${PROJECTS_ROOT}/Applications/ASP/bin"
 
 
 ## Common includes
-source ${PROJECTS_ROOT}/environment-setups/common/imports
+source ${PROJECTS_ROOT}/environment-setups/common/imports.bash
 # Third party
 source /usr/local/etc/bash_completion.d/git-completion.bash
 
