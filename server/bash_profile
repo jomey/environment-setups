@@ -9,7 +9,7 @@ PATH=${HOME}/bin:${PROJECTS_ROOT}/bin:${HOME}/ASP/current/bin:${PATH}
 ## Common includes
 source ${PROJECTS_ROOT}/environment-setups/common/imports
 # GIT customization
-source ${HOME}/miniconda3/share/bash-completion/completions/git
+source ${CONDA_HOME}/share/bash-completion/completions/git
 
 
 ## Terminal prompt
