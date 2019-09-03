@@ -82,9 +82,15 @@ cmap w!! w !sudo tee > /dev/null %
 " Always show statusbar
 set laststatus=2
 
-" ======== Plugins ========
+" ==== File Type configs ====
+
 " XML folding
 let g:xml_syntax_folding=1
+
+" Map .vrt files as xml
+au BufNewFile,BufRead *.vrt set filetype=xml
+
+" ======== Plugins ========
 
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.git,*.class,*.o
@@ -115,7 +121,4 @@ let g:tcomment_opleader1 = '<leader>c'
 
 " ** conda-vim **
 let g:conda_startup_msg_suppress = 1
-
-" Map .vrt files as xml
-au BufNewFile,BufRead *.vrt set filetype=xml
 
