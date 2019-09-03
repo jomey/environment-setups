@@ -106,9 +106,9 @@ let g:gitgutter_enabled=1
 " Reduce update time for gitgutter
 set updatetime=400
 " Default colors
-highlight GitGutterAdd    guifg=#b8bb26 ctermfg=142
-highlight GitGutterChange guifg=#fabd2f ctermfg=214
-highlight GitGutterDelete guifg=#fb4934 ctermfg=167
+highlight GitGutterAdd    guifg=#00d700 ctermfg=40
+highlight GitGutterChange guifg=#ff5f00 ctermfg=202
+highlight GitGutterDelete guifg=#ff0000 ctermfg=196
 
 " ** tcomment-vim **
 let g:tcomment_opleader1 = '<leader>c'
