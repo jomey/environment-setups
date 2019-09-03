@@ -8,7 +8,7 @@ setlocal autoindent
 setlocal fileformat=unix
 
 set background=dark
-colorscheme gruvbox    " github: https://github.com/morhetz/gruvbox.git 
+colorscheme gruvbox
 
 set foldmethod=indent
 
