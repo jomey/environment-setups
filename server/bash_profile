@@ -3,8 +3,9 @@ export CONDA_HOME="${HOME}/miniconda3"
 
 
 # PATH additions
-PATH=${HOME}/bin:${PROJECTS_ROOT}/bin:${HOME}/ASP/current/bin:${PATH}
-
+if [[ -z $TMUX ]]; then
+  PATH=${HOME}/bin:${PROJECTS_ROOT}/bin:${HOME}/ASP/current/bin:${PATH}
+fi
 
 ## Common includes
 source ${PROJECTS_ROOT}/environment-setups/common/imports.bash
