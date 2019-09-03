@@ -7,6 +7,7 @@ setlocal expandtab
 setlocal autoindent
 setlocal fileformat=unix
 
+set background=dark
 colorscheme gruvbox    " github: https://github.com/morhetz/gruvbox.git 
 " Change selected text color
 hi Visual gui=NONE guibg=Grey80 guifg=Black
