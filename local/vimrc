@@ -102,7 +102,7 @@ map <leader>1 :NERDTreeToggle<CR>
 " autocmd vimenter * if !argc() | NERDTree | endif
 let g:NERDTreeWinSize = 40      " set window size
 " Close vim if NERDTree is the only remaining open window
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Don't show sing column for NERDtree
 autocmd FileType nerdtree setlocal signcolumn=no
 
