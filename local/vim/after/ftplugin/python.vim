@@ -10,6 +10,8 @@ setlocal fileformat=unix
 set background=dark
 colorscheme gruvbox
 
+set colorcolumn=80
+
 set foldmethod=indent
 
 " Python code completion
