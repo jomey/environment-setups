@@ -1,0 +1,11 @@
+channel_priority: strict
+channels:
+  - conda-forge
+  - defaults
+auto_update_conda: true
+show_channel_urls: true
+update_dependencies: true
+envs_dirs:
+  - /path/to/conda_envs
+create_default_packages:
+  - ipython
