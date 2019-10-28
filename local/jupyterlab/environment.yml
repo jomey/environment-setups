@@ -1,0 +1,12 @@
+name: jupyter-lab
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - nb_conda_kernels
+  - nodejs
+  - jupyter
+  - jupyterlab
+  - matplotlib
+  - python
+
