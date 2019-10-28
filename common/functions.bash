@@ -8,6 +8,12 @@ function _ssh_completion() {
 }
 complete -W "$(_ssh_completion)" ssh scp
 
+function start_jupyter_lab() {
+  conda activate jupyter-lab
+  cd ${PROJECTS_ROOT}
+  jupyter lab
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$("${CONDA_HOME}/bin/conda" 'shell.bash' 'hook' 2> /dev/null)"
