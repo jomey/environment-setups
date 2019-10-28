@@ -30,9 +30,19 @@ set bs=indent,eol,start   " Backspace over everything in insert mode
 
 " colors
 syntax on
-set t_Co=256           " Enable vim to use 256 colors
-set background=dark
-colorscheme zenburn
+set t_Co=256              " Enable vim to use 256 colors
+set background=light
+let g:PaperColor_Theme_Options = {
+  \   'theme': {
+  \     'default.light': { 
+  \       'override' : {
+  \         'linenumber_bg' : ['#d0d0d0', '252'],
+  \         'linenumber_fg' : ['#000000', '0'],
+  \       }
+  \     }
+  \   }
+  \ }
+colorscheme PaperColor
 " let g:gruvbox_contrast_dark='hard'
 
 " Color for selected text
@@ -40,8 +50,8 @@ hi Visual gui=NONE guibg=Grey80 guifg=Black
 hi Visual cterm=NONE ctermbg=Grey ctermfg=Black
 
 " Sign column
-set signcolumn=yes  " Always show
-hi clear SignColumn " Transparent background
+set signcolumn=yes        " Always show
+hi clear SignColumn       " Transparent background
 
 " Directories for swp files
 set backupdir=~/.vim/backup

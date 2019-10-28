@@ -1,4 +1,13 @@
+setlocal tabstop=2
+setlocal softtabstop=2
+setlocal shiftwidth=2
+setlocal textwidth=79
+setlocal expandtab
+setlocal autoindent
+setlocal fileformat=unix
+
+set background=dark
 colorscheme gruvbox
-hi Visual gui=NONE guibg=Grey80 guifg=Black
-hi Visual cterm=NONE ctermbg=Grey ctermfg=Black
+
+set colorcolumn=80
 
