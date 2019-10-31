@@ -1,2 +1,3 @@
 https://github.com/jnurmine/Zenburn
 https://github.com/morhetz/gruvbox
+https://github.com/NLKNguyen/papercolor-theme
