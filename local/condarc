@@ -6,5 +6,6 @@ auto_update_conda: true
 show_channel_urls: true
 update_dependencies: true
 auto_activate_base: false
+env_prompt: ({name})
 create_default_packages:
   - ipython
