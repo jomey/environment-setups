@@ -1,0 +1,50 @@
+## Global variables
+# Required for source imports
+export PROJECTS_ROOT='/Volumes/warehouse/projects'
+export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
+
+## Common includes
+source ${PROJECTS_ROOT}/environment-setups/common/functions.zsh
+
+## Aliases
+alias ll='ls -al'
+alias snow_rs='conda activate snow_rs'
+alias raster_compare='conda activate raster_compare'
+
+## ZSH configuration
+setopt AUTO_CD
+setopt CORRECT                # Autocorrect
+setopt CORRECT_ALL
+
+setopt PROMPT_SUBST           # COMMAND SUBSTITUTION
+PROMPT='%n:%B%F{black}(%1~)%f%b %# '
+
+## GIT in right prompt ##
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%B%F{2}(%b)%f'
+zstyle ':vcs_info:*' enable git
+
+# LS colors
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt SHARE_HISTORY          # share across multiple zsh sessions
+setopt APPEND_HISTORY         # append to history
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS      #ignore duplicates when searching
+setopt HIST_REDUCE_BLANKS
+
+export EDITOR=/usr/local/bin/vim
+
+autoload -Uz compinit
+compinit -u
+
+# Functions from brew installs
+FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
