@@ -3,13 +3,24 @@
 export PROJECTS_ROOT='/Volumes/warehouse/projects'
 export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
-## Common includes
-source ${PROJECTS_ROOT}/environment-setups/common/functions.zsh
-
 ## Aliases
 alias ll='ls -al'
 alias snow_rs='conda activate snow_rs'
 alias raster_compare='conda activate raster_compare'
+
+# Functions defined outside of zsh
+fpath=(
+  $fpath
+  ${PROJECTS_ROOT}/environment-setups/zsh/local-functions
+  $(brew --prefix)/share/zsh/site-functions
+)
+# Autload custom functions
+for func in $^fpath/*(N-.x:t); autoload -Uz $func
+
+source ${PROJECTS_ROOT}/environment-setups/zsh/conda
+
+# Remove duplicates from variables
+typeset -U path cdpath fpath manpath
 
 ## ZSH configuration
 setopt AUTO_CD
@@ -27,6 +38,10 @@ RPROMPT=\$vcs_info_msg_0_
 zstyle ':vcs_info:git:*' formats '%B%F{2}(%b)%f'
 zstyle ':vcs_info:*' enable git
 
+# VI key bindings
+bindkey -v
+export EDITOR=/usr/local/bin/vim
+
 # LS colors
 export CLICOLOR=1
 export LSCOLORS=ExFxCxDxBxegedabagacad
@@ -41,10 +56,20 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS      #ignore duplicates when searching
 setopt HIST_REDUCE_BLANKS
 
-export EDITOR=/usr/local/bin/vim
+# Auto completion
+zmodload zsh/complist
 
+zstyle ':completion:*::::' completer _expand _complete _correct _ignored _approximate
+zstyle ':completion:*' menu select search
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+
+{
+  zcompdump="${HOME}/.zcompdump"
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+    zcompile "$zcompdump"
+  fi
+} &!  # Run in background
 autoload -Uz compinit
 compinit -u
-
-# Functions from brew installs
-FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
