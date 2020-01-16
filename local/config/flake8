@@ -1,0 +1,2 @@
+[flake8]
+ignore = W391  #Ignore blank line at end of file warning
