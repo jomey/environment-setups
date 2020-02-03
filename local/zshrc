@@ -56,6 +56,8 @@ setopt HIST_IGNORE_DUPS
 setopt HIST_FIND_NO_DUPS      #ignore duplicates when searching
 setopt HIST_REDUCE_BLANKS
 
+bindkey '^R' history-incremental-pattern-search-backward
+
 # Auto completion
 zmodload zsh/complist
 
