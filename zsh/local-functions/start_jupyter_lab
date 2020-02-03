@@ -1,0 +1,3 @@
+conda activate jupyter-lab
+cd ${PROJECTS_ROOT}
+jupyter lab

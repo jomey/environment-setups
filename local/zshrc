@@ -1,0 +1,77 @@
+## Global variables
+# Required for source imports
+export PROJECTS_ROOT='/Volumes/warehouse/projects'
+export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
+
+## Aliases
+alias ll='ls -al'
+alias snow_rs='conda activate snow_rs'
+alias raster_compare='conda activate raster_compare'
+
+# Functions defined outside of zsh
+fpath=(
+  $fpath
+  ${PROJECTS_ROOT}/environment-setups/zsh/local-functions
+  $(brew --prefix)/share/zsh/site-functions
+)
+# Autload custom functions
+for func in $^fpath/*(N-.x:t); autoload -Uz $func
+
+source ${PROJECTS_ROOT}/environment-setups/zsh/conda
+
+# Remove duplicates from variables
+typeset -U path cdpath fpath manpath
+
+## ZSH configuration
+setopt AUTO_CD
+setopt CORRECT                # Autocorrect
+setopt CORRECT_ALL
+
+setopt PROMPT_SUBST           # COMMAND SUBSTITUTION
+PROMPT='%n:%B%F{black}(%1~)%f%b %# '
+
+## GIT in right prompt ##
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+RPROMPT=\$vcs_info_msg_0_
+zstyle ':vcs_info:git:*' formats '%B%F{2}(%b)%f'
+zstyle ':vcs_info:*' enable git
+
+# VI key bindings
+bindkey -v
+export EDITOR=/usr/local/bin/vim
+
+# LS colors
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+setopt SHARE_HISTORY          # share across multiple zsh sessions
+setopt APPEND_HISTORY         # append to history
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS      #ignore duplicates when searching
+setopt HIST_REDUCE_BLANKS
+
+bindkey '^R' history-incremental-pattern-search-backward
+
+# Auto completion
+zmodload zsh/complist
+
+zstyle ':completion:*::::' completer _expand _complete _correct _ignored _approximate
+zstyle ':completion:*' menu select search
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+
+{
+  zcompdump="${HOME}/.zcompdump"
+  if [[ -s "$zcompdump" && (! -s "${zcompdump}.zwc" || "$zcompdump" -nt "${zcompdump}.zwc") ]]; then
+    zcompile "$zcompdump"
+  fi
+} &!  # Run in background
+autoload -Uz compinit
+compinit -u
