@@ -115,6 +115,8 @@ let g:NERDTreeWinSize = 40      " set window size
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Don't show sing column for NERDtree
 autocmd FileType nerdtree setlocal signcolumn=no
+" Show hidden files
+let NERDTreeShowHidden=1
 
 " ** GitGutter **
 " Enable gitgutter
