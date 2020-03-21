@@ -5,8 +5,10 @@ export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
 ## Aliases
 alias ll='ls -al'
-alias snow_rs='conda activate snow_rs'
-alias raster_compare='conda activate raster_compare'
+
+function cl() {
+  conda activate $1
+}
 
 # Functions defined outside of zsh
 fpath=(
