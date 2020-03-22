@@ -136,3 +136,7 @@ let g:conda_startup_msg_suppress = 1
 
 " Ariline and ALE
 let g:airline#extensions#ale#enabled = 1
+" Only use set ALE linter
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
+
