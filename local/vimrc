@@ -115,6 +115,8 @@ let g:NERDTreeWinSize = 40      " set window size
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " Don't show sing column for NERDtree
 autocmd FileType nerdtree setlocal signcolumn=no
+" Show hidden files
+let NERDTreeShowHidden=1
 
 " ** GitGutter **
 " Enable gitgutter
@@ -131,4 +133,10 @@ let g:tcomment_opleader1 = '<leader>c'
 
 " ** conda-vim **
 let g:conda_startup_msg_suppress = 1
+
+" Ariline and ALE
+let g:airline#extensions#ale#enabled = 1
+" Only use set ALE linter
+let g:ale_linters_explicit = 1
+let g:ale_fix_on_save = 1
 

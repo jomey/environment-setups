@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
 while read line; do
-  git clone $line
+  git clone --depth 1 $line
 done < themes.txt
 

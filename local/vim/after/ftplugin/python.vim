@@ -24,6 +24,6 @@ map <buffer> <S-F7> :call flake8#Flake8UnplaceMarkers()<CR>
 let g:flake8_show_in_gutter=1
 " Remove all trailing white space before save
 autocmd BufWritePre *.py :%s/\s\+$//e
-" Run on saveing a file
-autocmd BufWritePost *.py call Flake8()
+" Check with flake8 with ALE plugin
+let b:ale_linters = ['flake8']
 

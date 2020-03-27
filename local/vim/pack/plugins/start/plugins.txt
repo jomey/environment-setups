@@ -1,10 +1,10 @@
-https://github.com/vim-airline/vim-airline
+https://github.com/Raimondi/delimitMate
 https://github.com/airblade/vim-gitgutter
-https://github.com/nvie/vim-flake8
-https://github.com/ervandew/supertab
 https://github.com/cjrh/vim-conda
+https://github.com/ctrlpvim/ctrlp.vim.git
+https://github.com/ervandew/supertab
+https://github.com/nvie/vim-flake8
+https://github.com/scrooloose/nerdtree
 https://github.com/tomtom/tcomment_vim
 https://github.com/tpope/vim-fugitive
-https://github.com/scrooloose/nerdtree
-https://github.com/mileszs/ack.vim
-https://github.com/Raimondi/delimitMate
+https://github.com/vim-airline/vim-airline
