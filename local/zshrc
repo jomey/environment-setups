@@ -5,6 +5,7 @@ export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
 ## Aliases
 alias ll='ls -al'
+alias clear_nbs="${CONDA_HOME}/envs/jupyter-lab/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace --log-level=ERROR"
 
 function cl() {
   conda activate $1
