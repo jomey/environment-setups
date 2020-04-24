@@ -66,7 +66,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 zmodload zsh/complist
 
 zstyle ':completion:*::::' completer _expand _complete _correct _ignored _approximate
-zstyle ':completion:*' menu select search
+zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
