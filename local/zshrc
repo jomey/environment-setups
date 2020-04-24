@@ -6,7 +6,10 @@ export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 export GDAL_OPTS="${PROJECTS_ROOT}/environment-setups/common/gdal_opts.txt"
 ## Aliases
 alias ll='ls -al'
-alias clear_nbs="${CONDA_HOME}/envs/jupyter-lab/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace --log-level=ERROR"
+
+function clear_nbs() {
+  ${CONDA_HOME}/envs/jupyter-lab/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace --log-level=ERROR ${1:-*.ipynb}
+}
 
 function cl() {
   conda activate $1
