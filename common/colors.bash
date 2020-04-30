@@ -1,5 +1,5 @@
 # Terminal ANSI colors
-BLACK="\[\033[1;30m\]"
+BLACK="\[\033[1;30m\]"  # Bold with 1; weight
 RED="\[\033[0;31m\]"
 GREEN="\[\033[0;32m\]"
 ORANGE="\[\033[0;33m\]"

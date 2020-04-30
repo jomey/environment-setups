@@ -3,11 +3,13 @@
 export PROJECTS_ROOT='/Volumes/warehouse/projects'
 export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
+export GDAL_OPTS="${PROJECTS_ROOT}/environment-setups/common/gdal_opts.txt"
 ## Aliases
 alias ll='ls -al'
+alias cl="conda activate ${1}"
 
-function cl() {
-  conda activate $1
+function clear_nbs() {
+  ${CONDA_HOME}/envs/jupyter-lab/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace --log-level=ERROR ${1:-*.ipynb}
 }
 
 # Functions defined outside of zsh
@@ -64,7 +66,7 @@ bindkey '^R' history-incremental-pattern-search-backward
 zmodload zsh/complist
 
 zstyle ':completion:*::::' completer _expand _complete _correct _ignored _approximate
-zstyle ':completion:*' menu select search
+zstyle ':completion:*' menu select
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
 zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"

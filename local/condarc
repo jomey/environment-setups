@@ -9,4 +9,4 @@ auto_activate_base: false
 env_prompt: ({name})
 create_default_packages:
   - ipython
-  - ipykernel
+#  - ipykernel
