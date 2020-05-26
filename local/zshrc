@@ -7,10 +7,6 @@ export GDAL_OPTS="${PROJECTS_ROOT}/environment-setups/common/gdal_opts.txt"
 alias ll='ls -al'
 alias cl="conda activate ${1}"
 
-function clear_nbs() {
-  ${CONDA_HOME}/envs/jupyter-lab/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace --log-level=ERROR ${1:-*.ipynb}
-}
-
 # Functions defined outside of zsh
 fpath=(
   $fpath
