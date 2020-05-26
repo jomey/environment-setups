@@ -1,7 +1,6 @@
 ## Global variables
 # Required for source imports
 export PROJECTS_ROOT='/Volumes/warehouse/projects'
-export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
 export GDAL_OPTS="${PROJECTS_ROOT}/environment-setups/common/gdal_opts.txt"
 ## Aliases
