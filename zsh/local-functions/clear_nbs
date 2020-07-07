@@ -1,0 +1,10 @@
+if [[ -x 'jupyter' ]]; then
+  command=jupyter
+else
+  command=${CONDA_PREFIX}/envs/jupyter-lab/bin/jupyter
+fi
+
+$command nbconvert \
+  --ClearOutputPreprocessor.enabled=True \
+  --inplace --log-level=ERROR \
+  ${1:-*.ipynb}

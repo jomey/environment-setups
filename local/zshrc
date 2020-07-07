@@ -1,16 +1,11 @@
 ## Global variables
 # Required for source imports
 export PROJECTS_ROOT='/Volumes/warehouse/projects'
-export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
 export GDAL_OPTS="${PROJECTS_ROOT}/environment-setups/common/gdal_opts.txt"
 ## Aliases
 alias ll='ls -al'
 alias cl="conda activate ${1}"
-
-function clear_nbs() {
-  ${CONDA_HOME}/envs/jupyter-lab/bin/jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace --log-level=ERROR ${1:-*.ipynb}
-}
 
 # Functions defined outside of zsh
 fpath=(
