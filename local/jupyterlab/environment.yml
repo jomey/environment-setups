@@ -3,10 +3,11 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - nb_conda_kernels
-  - nodejs
+  - ipympl
   - jupyter
   - jupyterlab
   - matplotlib
+  - nb_conda_kernels
+  - nodejs
   - python
 

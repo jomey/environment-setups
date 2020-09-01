@@ -13,7 +13,7 @@ source /usr/local/etc/bash_completion.d/git-completion.bash
 
 
 ## Terminal prompt
-PS1="$GREEN\W:$GREEN$RED\$(parse_git_branch)$NO_COLOUR\$ "
+PS1="\u:($BLACK\W$NO_COLOUR)$RED\$(parse_git_branch)$NO_COLOUR\$ "
 
 
 ## BASH settings
