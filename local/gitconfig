@@ -6,6 +6,8 @@
   email = j.meyer@utah.edu
 [push]
   default = current
+[pull]
+	rebase = true
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
@@ -15,4 +17,3 @@
 [rebase]
   autoSquash = true
   autoStash = true
-
