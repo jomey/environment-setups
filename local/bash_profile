@@ -18,7 +18,7 @@ PS1="\u:($BLACK\W$NO_COLOUR)$RED\$(parse_git_branch)$NO_COLOUR\$ "
 
 ## BASH settings
 # No dups in bash_history
-export HISTCONTROL=ignoreboth:erasedups
+export HISTCONTROL=ignoreboth:erasedups:rm:ll:ls:git
 export CLICOLOR=1
 
 

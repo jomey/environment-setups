@@ -4,5 +4,6 @@
 #    Interactive matplotlib features
 
 jupyter labextension install @jupyter-widgets/jupyterlab-manager \
-                             jupyter-matplotlib
+                             jupyter-matplotlib \
+                             @ijmbarr/jupyterlab_spellchecker
 
