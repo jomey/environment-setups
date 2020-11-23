@@ -80,6 +80,15 @@ options hid_apple fnmode=2
 ## Trigger copying to bootfile
 sudo update-initramfs -u -k all
 
+# Set default sound and disable auto-switch
+## Copy deivce name from list of devices
+pactl list short sinks
+## Config file: /etc/pulse/default.pa
+### Set default
+set-default-sink <name>
+### Disable switch
+# Comment line with load-module module-switch-on-connect
+
 # Remove PopShop daemon
 mv /usr/share/applications/io.elementary.appcenter-daemon.desktop /data/appcenter-daemon/
 rm /etc/xdg/autostart/io.elementary.appcenter-daemon.desktop
@@ -104,4 +113,3 @@ run-parts -v /etc/cron.hourly
 
 # Get distribution name
 lsb_release -cs
-
