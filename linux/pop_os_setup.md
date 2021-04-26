@@ -5,6 +5,7 @@ apt install gnome-tweak-tool \
   localepurge \
   gufw \
   gnome-dictionary \
+  localepurge
 ```
 
 ### Preview files in gnome
@@ -23,6 +24,14 @@ apt install libimobiledevice-utils
 add-apt-repository ppa:mattrose/terminator
 apt install terminator
 ```
+
+### Add a color scheme
+#### https://github.com/Mayccoll/Gogh
+#### Setup:
+apt-get install dconf-cli uuid-runtime
+
+#### Add a theme
+bash -c "$(wget -qO- https://git.io/vQgMr)"
 
 ### Bluetooth sound
 ```script
@@ -46,13 +55,6 @@ flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.f
 flatpak install flathub com.github.tchx84.Flatseal
 ```
 
-## Exchange server
-```script
-apt install evolution
-apt install evolution-ews
-```script
-```
-
 ### Unmaximize launched windows
 ```script
 gsettings set org.gnome.mutter auto-maximize false
@@ -67,6 +69,10 @@ vi /etc/xdg/user-dirs.conf
 ```script
 vi ~/.config/user-dirs.dirs
 ```
+
+### Add /home/shared to app armor for shared access
+## 
+sudo dpkg-reconfigure apparmor
 
 ## Swap Apple keyboard fn key
 ```script
@@ -119,32 +125,9 @@ run-parts -v /etc/cron.hourly
 ```
 
 # MySQL
-```script
-wget https://dev.mysql.com/get/mysql-apt-config_0.8.12-1_all.deb
-dpkg -i mysql-apt-config_0.8.12-1_all.deb 
-apt update
-apt install mysql-client-server=5.7.31-1ubuntu18.04
-apt install mysql-client=5.7.31-1ubuntu18.04
-apt install mysql-community-server=5.7.31-1ubuntu18.04
-mysql_secure_installation 
-```
-## Freeze version
-```script
-apt-mark hold mysql-server
-apt-mark hold mysql-community-server
-apt-mark hold mysql-client
-apt-mark hold mysql-community-client
-```
 ## Move mysql data dir, grant access to new location
 ```script
 vi /etc/apparmor.d/tunables/alias 
 systemctl restart apparmor
 ```
-## Search for upgrade; get version number
-```script
-apt-cache policy mysql-server
-```
-## Upgrade
-```script
-apt upgrade mysql-client=5.7.32-1ubuntu18.04 mysql-community-client=5.7.32-1ubuntu18.04 mysql-community-server=5.7.32-1ubuntu18.04 mysql-server=5.7.32-1ubuntu18.04
-```
+

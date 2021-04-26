@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ParaView
+Comment=Parallel visualization application
+Exec=/data/Applications/ParaView/bin/paraview %f
+Icon=/data/Applications/ParaView/share/icons/hicolor/96x96/apps/paraview.png
+TryExec=/data/Applications/ParaView/bin/paraview
+StartupWMClass=paraview
+Categories=Qt;Science;DataVisualization;
