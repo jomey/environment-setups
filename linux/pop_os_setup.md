@@ -117,6 +117,13 @@ systemctl restart systemd-journald
 nmcli general logging level WARN
 ```
 
+## Disable Bluetooth at startup
+```script
+vi /etc/bluetooth/main.conf
+# ===
+AutoEnable=false
+```
+
 ### Test cron
 #### - No dot in cron script names
 #### - Make sure of #! at the beginning
