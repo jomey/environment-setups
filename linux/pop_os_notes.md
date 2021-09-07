@@ -26,3 +26,29 @@ init 1
 ```script
 lsb_release -cs
 ```
+
+### Inspect system settings
+```script
+gsettings
+```
+
+Example: List keys for touchpad peripheral
+```
+gsettings list-recursively org.gnome.desktop.peripherals.touchpad
+```
+
+### Troubleshoot wifi issues
+Check messages from boot time
+```
+sudo dmesg | grep iwlwifi
+``
+
+### Hold a package at current installed version
+```
+apt-mark hold <package-name>
+```
+Verify:
+```
+apt-mark showhold
+```
+
