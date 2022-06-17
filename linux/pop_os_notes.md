@@ -52,3 +52,6 @@ Verify:
 apt-mark showhold
 ```
 
+### Set CPU frequency scaling to 'powersave'
+echo "powersave" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+
