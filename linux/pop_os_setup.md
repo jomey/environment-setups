@@ -8,6 +8,12 @@ apt install gnome-tweak-tool \
   localepurge
 ```
 
+### TLP package
+## Battery power manager
+apt install tlp
+
+systemctl enable tlp.service
+
 ### Preview files in gnome
 ```script
 apt install gnome-sushi
