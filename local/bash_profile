@@ -2,10 +2,6 @@ export PROJECTS_ROOT='/Volumes/warehouse/projects'
 export CONDA_HOME="${PROJECTS_ROOT}/miniconda"
 
 
-## PATH additions
-export PATH="$PATH:${PROJECTS_ROOT}/Applications/ASP/bin"
-
-
 ## Common includes
 source ${PROJECTS_ROOT}/environment-setups/common/imports.bash
 # Third party
@@ -24,7 +20,4 @@ export CLICOLOR=1
 
 ## Aliases
 alias ll='ls -al'
-alias snow_rs='conda activate snow_rs'
-alias snow_aso='export GDAL_CACHEMAX=20%; conda activate snow_aso'
-alias dem_tools='conda activate dem_tools'
 
