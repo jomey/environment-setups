@@ -10,7 +10,6 @@ complete -W "$(_ssh_completion)" ssh scp
 
 function start_jupyter_lab() {
   conda activate jupyter-lab
-  cd ${PROJECTS_ROOT}
   jupyter lab
 }
 
