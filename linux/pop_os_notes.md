@@ -3,6 +3,16 @@
 /usr/share/gnome-shell/extensions
 ```
 
+## Autostart
+### System-wide
+```script
+/etc/xdg/autostart
+```
+### User
+```script
+~/.config/autostart
+```
+
 ### Nautilus view preferences
 ```script
 ~/.local/share/gvfs-metadata/
@@ -55,3 +65,12 @@ apt-mark showhold
 ### Set CPU frequency scaling to 'powersave'
 echo "powersave" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
+## Flatpak
+### Cleanup objects
+```
+flatpak repari
+```
+### Remove unused
+```
+flatpak uninstall --unused
+```
