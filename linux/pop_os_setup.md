@@ -92,6 +92,11 @@ options hid_apple fnmode=2
 ```script
 sudo update-initramfs -u -k all
 ```
+## Fix toucpad scrolling
+### Remove xserver-xorg-input-synaptics
+```
+apt-get remove xserver-xorg-input-synaptics
+```
 
 ## Set default sound and disable auto-switch
 ### Copy device name from list of devices
