@@ -51,7 +51,7 @@ gsettings list-recursively org.gnome.desktop.peripherals.touchpad
 Check messages from boot time
 ```
 sudo dmesg | grep iwlwifi
-``
+```
 
 ### Hold a package at current installed version
 ```
