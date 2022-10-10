@@ -68,7 +68,7 @@ echo "powersave" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governo
 ## Flatpak
 ### Cleanup objects
 ```
-flatpak repari
+flatpak repair
 ```
 ### Remove unused
 ```
