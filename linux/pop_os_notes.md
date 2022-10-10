@@ -53,6 +53,11 @@ Check messages from boot time
 sudo dmesg | grep iwlwifi
 ```
 
+Re-install kernel, to exclude corrupt-firmware driver
+```
+apt-get reinstall linux-firmware
+```
+
 ### Hold a package at current installed version
 ```
 apt-mark hold <package-name>
