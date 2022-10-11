@@ -10,14 +10,15 @@ apt install gnome-tweak-tool \
 
 ### TLP package
 ## Battery power manager
+```
 apt install tlp
 
 systemctl enable tlp.service
+```
 
 ### Preview files in gnome
 ```script
 apt install gnome-sushi
-```script
 ```
 
 ### iPad connection
@@ -34,10 +35,14 @@ apt install terminator
 ### Add a color scheme
 #### https://github.com/Mayccoll/Gogh
 #### Setup:
+```
 apt-get install dconf-cli uuid-runtime
+```
 
 #### Add a theme
+```
 bash -c "$(wget -qO- https://git.io/vQgMr)"
+```
 
 ### Bluetooth sound
 ```script
@@ -77,8 +82,9 @@ vi ~/.config/user-dirs.dirs
 ```
 
 ### Add /home/shared to app armor for shared access
-## 
+```
 sudo dpkg-reconfigure apparmor
+```
 
 ## Swap Apple keyboard fn key
 ```script
@@ -148,4 +154,3 @@ run-parts -v /etc/cron.hourly
 vi /etc/apparmor.d/tunables/alias 
 systemctl restart apparmor
 ```
-

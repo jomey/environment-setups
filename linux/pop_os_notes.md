@@ -53,6 +53,11 @@ Check messages from boot time
 sudo dmesg | grep iwlwifi
 ```
 
+Re-install kernel, to exclude corrupt-firmware driver
+```
+apt-get reinstall linux-firmware
+```
+
 ### Hold a package at current installed version
 ```
 apt-mark hold <package-name>
@@ -63,12 +68,14 @@ apt-mark showhold
 ```
 
 ### Set CPU frequency scaling to 'powersave'
+```
 echo "powersave" | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
+```
 
 ## Flatpak
 ### Cleanup objects
 ```
-flatpak repari
+flatpak repair
 ```
 ### Remove unused
 ```
