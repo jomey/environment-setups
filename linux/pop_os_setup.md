@@ -8,14 +8,6 @@ apt install gnome-tweak-tool \
   localepurge
 ```
 
-### TLP package
-## Battery power manager
-```
-apt install tlp
-
-systemctl enable tlp.service
-```
-
 ### Preview files in gnome
 ```script
 apt install gnome-sushi
@@ -86,6 +78,15 @@ vi ~/.config/user-dirs.dirs
 sudo dpkg-reconfigure apparmor
 ```
 
+## Enable numpad on keyboard
+https://help.ubuntu.com/community/NumLock
+```
+sudo apt-get install numlockx
+```
+In Terminal:
+```
+numlockx on
+```
 ## Swap Apple keyboard fn key
 ```script
 vi /etc/modprobe.d/hid_apple.conf
@@ -98,7 +99,7 @@ options hid_apple fnmode=2
 ```script
 sudo update-initramfs -u -k all
 ```
-## Fix toucpad scrolling
+## Fix touchpad scrolling
 ### Remove xserver-xorg-input-synaptics
 ```
 apt-get remove xserver-xorg-input-synaptics
@@ -141,15 +142,37 @@ vi /etc/bluetooth/main.conf
 AutoEnable=false
 ```
 
-### Test cron
-#### - No dot in cron script names
-#### - Make sure of #! at the beginning
+## Battery
+Configure charging thresholds
+https://support.system76.com/articles/laptop-battery-thresholds
+```
+vi /etc/systemd/system/charge-thresholds.service
+#===
+[Unit]
+Description=Set the charge threshold at startup.
+After=default.target
+
+[Service]
+Type=simple
+ExecStart=system76-power --profile balanced
+
+[Install]
+WantedBy=default.target
+#===
+systemctl start charge-thresholds.service
+```
+### TLP package
+Do not use with `system-76` power on same machine
+
+## Test cron
+### - No dot in cron script names
+### - Make sure of #! at the beginning
 ```script
 run-parts -v /etc/cron.hourly
 ```
 
-# MySQL
-## Move mysql data dir, grant access to new location
+## MySQL
+### Move mysql data dir, grant access to new location
 ```script
 vi /etc/apparmor.d/tunables/alias 
 systemctl restart apparmor
