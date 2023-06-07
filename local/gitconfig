@@ -3,7 +3,7 @@
   co = checkout
 [user]
   name = Joachim Meyer
-  email = j.meyer@utah.edu
+  email = jomey@uw.edu
 [push]
   default = current
 [pull]
