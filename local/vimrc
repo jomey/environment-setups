@@ -4,7 +4,9 @@ set hlsearch             " highlight search terms
 set showmatch            " show matching brackets/parenthesis
 set autoindent
 set number
-set nowrap
+set wrap linebreak
+set columns=80
+set colorcolumn=80       " show a color column to suggest wrapping text
 set ruler                " show cursor position at all times
 set scrolloff=5          " keep at least 5 lines above/below
 set sidescrolloff=5      " keep at least 5 lines left/right
