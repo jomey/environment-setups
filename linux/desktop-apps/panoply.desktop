@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Name=Panoply
-Icon=/data/Applications/PanoplyJ/panoply.png
+Icon=/data/Applications/panoply.png
 Exec=bash -c "panoply.sh"
 Terminal=false
 StartupNotify=false
