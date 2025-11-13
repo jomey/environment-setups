@@ -6,7 +6,7 @@ setlocal expandtab
 setlocal autoindent
 setlocal fileformat=unix
 
-set background=dark
+" set background=dark
 colorscheme gruvbox
 
 set colorcolumn=80
