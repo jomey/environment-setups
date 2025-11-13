@@ -1,13 +1,15 @@
 [alias]
   b = branch
   co = checkout
+  s = status
 [user]
   name = Joachim Meyer
-  email = jomey@uw.edu
+  signingkey = /home/student/.ssh/github_sign.pub
 [push]
   default = current
 [pull]
-	rebase = true
+  rebase = true
+	ff = only
 [core]
   excludesfile = ~/.gitignore
   editor = /usr/bin/vim
@@ -18,4 +20,13 @@
   autoSquash = true
   autoStash = true
 [fetch]
-	prune = true
+  prune = true
+[gpg]
+  format = ssh
+[commit]
+  gpgsign = true
+[init]
+	defaultBranch = main
+[credential]
+	helper = manager
+	credentialStore = secretservice

@@ -9,7 +9,6 @@ function _ssh_completion() {
 complete -W "$(_ssh_completion)" ssh scp
 
 function start_jupyter_lab() {
-  conda activate jupyter-lab
-  jupyter lab
+  micromamba run -n jupyter-lab jupyter lab
 }
 

@@ -1,11 +1,11 @@
 set encoding=utf8
+set lazyredraw
 set incsearch            " find as you type search
 set hlsearch             " highlight search terms
 set showmatch            " show matching brackets/parenthesis
 set autoindent
+set nowrap
 set number
-set wrap linebreak
-set columns=80
 set colorcolumn=80       " show a color column to suggest wrapping text
 set ruler                " show cursor position at all times
 set scrolloff=5          " keep at least 5 lines above/below
@@ -19,16 +19,31 @@ set expandtab            " Replace tabs with spaces when using tab key
 set fileformat=unix
 set eol                  " Enforce an empty line at end of a file
 set mouse=a              " Enable mouse support in terminal VIM
+set bs=indent,eol,start  " Backspace over everything in insert mode
 
 " Enable and configure folding
+set foldcolumn=2
 set foldmethod=syntax
 set foldnestmax=6
 set nofoldenable
+highlight Folded guifg=PeachPuff4
+
+" Sign column
+set signcolumn=yes        " Always show
+hi clear SignColumn       " Transparent background
 
 filetype plugin on        " Enable file type detection along with ftplugin/language.vim
 filetype plugin indent on " Language dependent indenting
 
-set bs=indent,eol,start   " Backspace over everything in insert mode
+" Map the leader key to space
+let mapleader = " "
+
+" Configure netrw like NERDtree
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4     " 1 = open new files in a horizontal split
+let g:netrw_winsize = 25
+nnoremap <leader>1 :Vexplore<CR>
 
 " colors
 syntax on
@@ -51,16 +66,9 @@ colorscheme PaperColor
 hi Visual gui=NONE guibg=Grey80 guifg=Black
 hi Visual cterm=NONE ctermbg=Grey ctermfg=Black
 
-" Sign column
-set signcolumn=yes        " Always show
-hi clear SignColumn       " Transparent background
-
 " Directories for swp files
 set backupdir=~/.vim/backup
 set directory=~/.vim/backup
-
-" Map the leader key to space
-let mapleader = " "
 
 " clearing highlighted search
 nmap <silent> <leader>/ :nohlsearch<CR>
@@ -85,11 +93,18 @@ nnoremap <C-L> <C-W><C-L>
 "" Left
 nnoremap <C-H> <C-W><C-H>
 
+" Use Ctrl + Left or Right Arrow for tab navigation
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+
+" Search visually selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
+
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
 
 " Save on focus loss
-":au FocusLost * silent! :w
+au FocusLost * silent! if &modified && filereadable(expand('%')) | write | endif
 
 " Always show statusbar
 set laststatus=2
@@ -107,19 +122,6 @@ au BufNewFile,BufRead *.vrt set filetype=xml
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.git,*.class,*.o
 
-" ** NERDTree settings **
-" Toggle NERDTree with n
-map <leader>1 :NERDTreeToggle<CR>
-" Always show NerdTree in seperate split window and only if no file was specified
-" autocmd vimenter * if !argc() | NERDTree | endif
-let g:NERDTreeWinSize = 40      " set window size
-" Close vim if NERDTree is the only remaining open window
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" Don't show sing column for NERDtree
-autocmd FileType nerdtree setlocal signcolumn=no
-" Show hidden files
-let NERDTreeShowHidden=1
-
 " ** GitGutter **
 " Enable gitgutter
 let g:gitgutter_enabled=1
@@ -132,9 +134,6 @@ highlight GitGutterDelete guifg=#ff0000 ctermfg=196
 
 " ** tcomment-vim **
 let g:tcomment_opleader1 = '<leader>c'
-
-" ** conda-vim **
-let g:conda_startup_msg_suppress = 1
 
 " Ariline and ALE
 let g:airline#extensions#ale#enabled = 1
